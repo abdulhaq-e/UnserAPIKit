@@ -8,7 +8,6 @@
 import Foundation
 import XCTest
 import Quick
-import QuickSpecBase
 import Nimble
 
 @testable import UnserAPIKit
