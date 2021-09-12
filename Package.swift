@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -9,6 +9,9 @@ let package = Package(
         .library(
             name: "UnserAPIKit",
             targets: ["UnserAPIKit"]),
+      .library(
+          name: "UnserAPIKitTestHelpers",
+          targets: ["UnserAPIKitTestHelpers"]),
     ],
     dependencies: [
         .package(url: "https://github.com/Quick/Quick.git", from: "4.0.0"),
@@ -22,6 +25,9 @@ let package = Package(
         .target(
             name: "UnserAPIKit",
             dependencies: []),
+      .target(
+          name: "UnserAPIKitTestHelpers",
+          dependencies: ["Quick", "Nimble"]),
         .testTarget(
             name: "UnserAPIKitTests",
             dependencies: ["UnserAPIKit", "Quick", "Nimble", "AnyCodable"]),
