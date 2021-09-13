@@ -30,24 +30,28 @@
      contentType: ContentType, acceptType: AcceptType, resolveAgainstBaseURL: Bool, data: Data?,
      body: [String: Encodable]? = nil
    ) {
-     expect(self.endpoint?.path) == path
-     if let httpMethod = httpMethod { expect(self.endpoint?.httpMethod) == httpMethod } else {
-       expect(self.endpoint?.httpMethod).to(beNil())
+    guard let endpoint = endpoint else {
+      fail("Endpoint not set, no request has been sent")
+      return
+    }
+     expect(endpoint.path) == path
+     if let httpMethod = httpMethod { expect(endpoint.httpMethod) == httpMethod } else {
+       expect(endpoint.httpMethod).to(beNil())
      }
      if let queryParameters = queryParameters {
-       expect(self.endpoint?.queryParameters) == queryParameters
+       expect(endpoint.queryParameters) == queryParameters
      } else {
-       expect(self.endpoint?.queryParameters).to(beNil())
+       expect(endpoint.queryParameters).to(beNil())
 
      }
-     if let headers = headers { expect(self.endpoint?.headers) == headers } else {
-       expect(self.endpoint?.headers).to(beNil())
+     if let headers = headers { expect(endpoint.headers) == headers } else {
+       expect(endpoint.headers).to(beNil())
 
      }
-     expect(self.endpoint?.contentType) == contentType
-     expect(self.endpoint?.acceptType) == acceptType
-     if let data = data { expect(self.endpoint?.data) == data } else {
-       expect(self.endpoint?.data).to(beNil())
+     expect(endpoint.contentType) == contentType
+     expect(endpoint.acceptType) == acceptType
+     if let data = data { expect(endpoint.data) == data } else {
+       expect(endpoint.data).to(beNil())
      }
    }
  }
