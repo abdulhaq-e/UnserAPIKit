@@ -7,27 +7,12 @@
 
 import Foundation
 
-public enum HttpMethod {
-    case get
-    case post
-    case put
-    case patch
-    case delete
-    
-    func value() -> String {
-        switch self {
-        case .get:
-            return "GET"
-        case .post:
-            return "POST"
-        case .put:
-            return "PUT"
-        case .patch:
-            return "PATCH"
-        case .delete:
-            return "DELETE"
-        }
-    }
+public enum HttpMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case patch = "PATCH"
+    case delete = "DELETE"
 }
 
 public enum MIMEType {

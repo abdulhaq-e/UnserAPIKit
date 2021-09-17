@@ -69,7 +69,7 @@ final class RequestBuilder {
     }
     
     private func setHttpMethod() {
-        self.request.httpMethod = endpoint.httpMethod?.value() ?? HttpMethod.get.value()
+        self.request.httpMethod = endpoint.httpMethod?.rawValue ?? HttpMethod.get.rawValue
     }
     
     private func setupContentType() {
